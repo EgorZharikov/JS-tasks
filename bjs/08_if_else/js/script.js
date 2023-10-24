@@ -104,7 +104,7 @@ document.querySelector('#btnEqual').addEventListener('click', function () {
 
 document.querySelector('#button-min').addEventListener('click', (e) => {
     e.preventDefault();
-    minValue = Number(minValueInput.value) || 0;
+    minValue = parseInt(minValueInput.value) || 0;
     minValue < -999 ? minValue = -1000 : false;
     minValueWindow.classList.add("collapse");
     maxValueWindow.classList.remove("collapse");
@@ -114,7 +114,7 @@ document.querySelector('#button-min').addEventListener('click', (e) => {
 
 document.querySelector('#button-max').addEventListener('click', (e) => {
     e.preventDefault();
-    maxValue = Number(maxValueInput.value) || 100;
+    maxValue = parseInt(maxValueInput.value) || 100;
     maxValue > 999 ? maxValue = 1000 : false; 
     maxValueWindow.classList.add("collapse");
     alertWindow.classList.remove("collapse");
