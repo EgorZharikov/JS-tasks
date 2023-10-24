@@ -62,7 +62,6 @@ document.querySelector('#btnRetry').addEventListener('click', function () {
     minValueInput.value = '';
     gameWindow.classList.add("collapse");
     minValueWindow.classList.remove("collapse");
-    maxValueInput.value
 })
 
 document.querySelector('#btnOver').addEventListener('click', function () {
@@ -119,7 +118,6 @@ document.querySelector('#button-max').addEventListener('click', (e) => {
     maxValueWindow.classList.add("collapse");
     alertWindow.classList.remove("collapse");
     alertMax.innerText = maxValue;
-
 })
 
 document.querySelector('#button-start').addEventListener('click', (e) => {
@@ -127,6 +125,5 @@ document.querySelector('#button-start').addEventListener('click', (e) => {
     alertWindow.classList.add("collapse");
     gameWindow.classList.remove("collapse");
     startGame();
-
 })
 
