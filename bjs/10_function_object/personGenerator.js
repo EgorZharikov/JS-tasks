@@ -27,7 +27,7 @@ const personGenerator = {
             "id_2": "Максим",
             "id_3": "Иван",
             "id_4": "Артем",
-            "id_5": "Дмитрий",
+            "id_5": "Валерий",
             "id_6": "Никита",
             "id_7": "Михаил",
             "id_8": "Даниил",
@@ -149,12 +149,46 @@ const personGenerator = {
          return dateBirth;
     },
 
+    // randomPatronymic: function () {
+    // let name = this.randomValue(this.firstNameMaleJson);
+    // let pMale;
+    // let pFemale;
+    //     if (/ей$/.test(name)) {
+    //         pMale = name.replace(/ей$/, 'еевич');
+    //         pFemale = name.replace(/ей$/, 'еевна');
+    //     }
+    //     if....
+    // },
     randomPatronymic: function () {
-        if (this.person.gender === this.GENDER_FEMALE) {
-            return this.randomValue(this.patronymicJson) + 'на';
-        } else {
-            return this.randomValue(this.patronymicJson) + 'ич';
+        let name = this.randomValue(this.firstNameMaleJson);
+        let patronymicMale;
+        let patronymicFemale;
+        if (name.slice(-3) == 'аил') {
+            patronymicFemale = name.substr(0, name.length - 3) + 'айловна';
+            patronymicMale = name.substr(0, name.length - 3) + 'айлович';
         }
+        switch (name.slice(-2)) {
+            case 'ей':
+                patronymicFemale = name.substr(0, name.length - 2) + 'еевна';
+                patronymicMale = name.substr(0, name.length - 2) + 'еевич';
+                break;
+            case 'ай':
+                patronymicFemale = name.substr(0, name.length - 2) + 'аевна';
+                patronymicMale = name.substr(0, name.length - 2) + 'аевич';
+                break;
+            case 'ий':
+                patronymicFemale = name.substr(0, name.length - 2) + 'ьевна';
+                patronymicMale = name.substr(0, name.length - 2) + 'ьевич';
+                break;
+            case 'та':
+                patronymicFemale = name.substr(0, name.length - 2) + 'тична';
+                patronymicMale = name.substr(0, name.length - 2) + 'тич';
+                break;
+            default:
+                patronymicFemale = name + 'овна';
+                patronymicMale = name + 'ович';
+        }
+        return this.person.gender === this.GENDER_FEMALE ? patronymicFemale : patronymicMale;
     },
 
     randomProfession: function () {
